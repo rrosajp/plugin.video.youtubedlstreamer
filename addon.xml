@@ -9,8 +9,12 @@
     <extension point="xbmc.addon.metadata">
         <summary>Search and play videos from almost any URL using yt-dlp</summary>
         <description>Search and play videos from almost any URL using yt-dlp</description>
+        <website>https://github.com/ilikenwf/plugin.video.youtubedlstreamer</website>
         <platform>all</platform>
-        <icon>icon.png</icon>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
     </extension>
 </addon>
 
