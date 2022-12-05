@@ -7,9 +7,10 @@
         <provides>video</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>Search and play videos using youtube-dl</summary>
-        <description>Search and play videos using youtube-dl</description>
+        <summary>Search and play videos from almost any URL using yt-dlp</summary>
+        <description>Search and play videos from almost any URL using yt-dlp</description>
         <platform>all</platform>
+        <icon>icon.png</icon>
     </extension>
 </addon>
 
