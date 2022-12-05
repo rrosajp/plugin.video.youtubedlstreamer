@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.youtubedlstreamer" name="Stream Any URL" version="1.0.0" provider-name="youtube-dl">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Search and play videos using youtube-dl</summary>
+        <description>Search and play videos using youtube-dl</description>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+
+
