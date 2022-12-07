@@ -50,10 +50,9 @@ class MyAddon(xbmcaddon.Addon):
         xbmcplugin.addDirectoryItem(self.handle, clear_history_url, xbmcgui.ListItem("Clear history"), isFolder=False)
 
     def clear_history(self):
-        # Prompt user to confirm that they want to clear the history file
-        confirm = xbmcgui.Dialog().yesno("Clear history", "Are you sure you want to clear the history?")
-
-        if confirm:
+        if confirm := xbmcgui.Dialog().yesno(
+            "Clear history", "Are you sure you want to clear the history?"
+        ):
             # Clear the history file
             open(self.HISTORY_FILE_PATH, "w").close()
 
@@ -66,7 +65,7 @@ class MyAddon(xbmcaddon.Addon):
         # Prompt user to enter search query
             self.QUERY = xbmcgui.Dialog().input("Enter search query")
 
-        if self.QUERY:            
+        if self.QUERY:        
             search_query = self.QUERY
             self.QUERY = None
 
@@ -79,16 +78,16 @@ class MyAddon(xbmcaddon.Addon):
             # Read the history file
             with open(self.HISTORY_FILE_PATH, "r") as history_file:
                 history = history_file.readlines()
-                
+
             history = list(reversed(history))
-                
+
             if search_query+"\n" not in history:
                 # Truncate the history file to keep only the first 10 lines
                 if len(history) >= 10:
                     history = history[:10]
                     with open(self.HISTORY_FILE_PATH, "w") as history_file:
                         history_file.write("".join(history))
-                        
+
                 # Add the search query to the history
                 with open(self.HISTORY_FILE_PATH, "a") as history_file:
                     history_file.write(search_query + "\n")
@@ -110,7 +109,7 @@ class MyAddon(xbmcaddon.Addon):
             progress_dialog.close()
 
             # Present a dialog to choose which stream to play
-            options = [f[0] if f[0] else f[1] for f in streams]
+            options = [f[0] or f[1] for f in streams]
             selected_stream = xbmcgui.Dialog().select("Select stream to play", options)
 
             if selected_stream >= 0:                
